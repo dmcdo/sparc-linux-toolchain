@@ -19,7 +19,7 @@ sparc-linux-toolchain_10.4.0-1.deb: toolchain
 	cp -r DEBIAN sparc-linux-toolchain_10.4.0-1
 	cp -r opt sparc-linux-toolchain_10.4.0-1
 	mkdir -p sparc-linux-toolchain_10.4.0-1/usr/bin
-	cd sparc-linux-toolchain_10.4.0-1/usr/bin && ln -s ../../opt/sparc-linux-toolchain/bin/sparc-* .
+	cd sparc-linux-toolchain_10.4.0-1/usr/bin && ln -s ../../opt/sparc-linux-toolchain/bin/sparc-linux-* .
 	cp sparcexec sparc-linux-toolchain_10.4.0-1/usr/bin/sparcexec
 	dpkg-deb --build sparc-linux-toolchain_10.4.0-1
 
@@ -30,3 +30,13 @@ clean:
 	rm -rf sparc-linux-toolchain_10.4.0-1
 	rm -rf opt
 	rm -rf buildroot-2023.02.2
+
+install:
+	cp -r opt/* /opt
+	cd /usr/bin && ln -s ../../opt/sparc-linux-toolchain/bin/sparc-linux-* .
+	cp sparcexec /usr/bin/sparcexec
+
+uninstall:
+	rm -rf /opt/sparc-linux-toolchain
+	rm /usr/bin/sparcexec
+	rm /usr/bin/sparc-linux-*

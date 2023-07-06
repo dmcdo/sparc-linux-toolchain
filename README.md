@@ -24,8 +24,17 @@ make debian
 This will build the toolchain and package it for Debian/Ubuntu systems. The resulting deb package will be named `sparc-linux-toolchain_10.4.0-1.deb`.
 
 
+### For Other Systems
+Build the toolchain and install it with make.
+```sh
+make
+sudo make install
+```
+This will install the toolchain to `/opt/sparc-linux-toolchain`. If necessary, you can uninstall the it with `sudo make uninstall`.
+
+
 ### Just The Toolchain
 ```sh
-make toolchain
+make
 ```
-This will build the toolchain with buildroot and create a standalone copy in the local `opt/` directory, which you can then copy into your system `/opt`.
+This will build the toolchain with buildroot and create a standalone copy in the local `opt/` directory.
