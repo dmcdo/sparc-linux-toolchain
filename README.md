@@ -1,5 +1,5 @@
 # sparc-linux-toolchain
-Use make to build a basic SPARC Linux GNU C/++ toolchain using buildroot and package it for Debian/Ubuntu.
+Use [buildroot](https://buildroot.org/) to build a basic SPARC Linux GNU C/++ toolchain using buildroot and package it for Debian/Ubuntu.
 
 All SPARC GNU tools are prefixed with `sparc-linux`. ie, `sparc-linux-gcc`, `sparc-linux-as`, `sparc-linux-ld`, etc.
 
@@ -13,7 +13,11 @@ Hello, World!
 ```
 
 ## Building
+Before building anything, you will need to install [buildroot's dependencies](https://buildroot.org/downloads/manual/manual.html#requirement-mandatory). Buildroot also requires that you have no whitespace characters in your PATH.
+
 ### For Debian/Ubuntu
+Building for Debian/Ubuntu requires dpkg-dev.
+
 ```sh
 make debian
 ```
