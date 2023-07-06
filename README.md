@@ -1,5 +1,5 @@
 # sparc-linux-toolchain
-Use make to build basic a SPARC Linux GNU C/++ toolchain using buildroot and package it for Debian/Ubuntu.
+Use make to build a basic SPARC Linux GNU C/++ toolchain using buildroot and package it for Debian/Ubuntu.
 
 All SPARC GNU tools are prefixed with `sparc-linux`. ie, `sparc-linux-gcc`, `sparc-linux-as`, `sparc-linux-ld`, etc.
 
