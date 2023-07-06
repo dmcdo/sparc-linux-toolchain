@@ -8,7 +8,7 @@ buildroot-2023.02.2/: buildroot-2023.02.2.tar.gz
 
 opt/: buildroot-2023.02.2/
 	cp .config buildroot-2023.02.2/
-	cd buildroot-2023.02.2/ && make toolchain
+	cd buildroot-2023.02.2/ && make sdk
 	mkdir -p opt/sparc-linux-toolchain
 	cp -r buildroot-2023.02.2/output/host/* opt/sparc-linux-toolchain
 
