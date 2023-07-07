@@ -21,7 +21,7 @@ Building for Debian/Ubuntu requires dpkg-dev.
 ```sh
 make debian
 ```
-This will build the toolchain and package it for Debian/Ubuntu systems. The resulting deb package will be named `sparc-linux-toolchain_10.4.0-1.deb`.
+This will build the toolchain and package it for Debian/Ubuntu systems. The resulting deb package will be named `sparc-linux-toolchain.deb`.
 
 
 ### For Other Systems
@@ -30,11 +30,11 @@ Build the toolchain and install it with make.
 make
 sudo make install
 ```
-This will install the toolchain to `/opt/sparc-linux-toolchain`. If necessary, you can uninstall the it with `sudo make uninstall`.
+This will install the toolchain to `/opt/sparc-buildroot-linux-uclibc_sdk-buildroot`. If necessary, you can uninstall the it with `sudo make uninstall`.
 
 
 ### Just The Toolchain
 ```sh
 make
 ```
-This will build the toolchain with buildroot and create a standalone copy in the local `opt/` directory.
+This will only build the buildroot sdk. The result will be at `buildroot/output/images/sparc-buildroot-linux-uclibc_sdk-buildroot.tar.gz`.
