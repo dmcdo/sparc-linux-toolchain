@@ -1,7 +1,7 @@
 BUILDROOT_VERSION = 2023.02.2
 REVISION = 1
-DPKG_NAME = "$(BUILDROOT_VERSION)-$(REVISION)"
-MAINTAINER = "$(shell git config user.name) \<$(shell git config user.email)\>"
+DPKG_NAME = $(BUILDROOT_VERSION)-$(REVISION)
+MAINTAINER = $(shell git config user.name) <$(shell git config user.email)>
 
 default: toolchain
 
@@ -17,7 +17,6 @@ buildroot: buildroot/
 
 buildroot/output/images/sparc-buildroot-linux-uclibc_sdk-buildroot.tar.gz: buildroot
 	cd buildroot/ && make sdk
-	cp buildroot/output/images/sparc-buildroot-linux-uclibc_sdk-buildroot.tar.gz .
 
 toolchain: buildroot/output/images/sparc-buildroot-linux-uclibc_sdk-buildroot.tar.gz
 
@@ -34,7 +33,7 @@ sparc-linux-toolchain.deb: toolchain
 	echo "Maintainer: $(MAINTAINER)"                        >> sparc-linux-toolchain_$(DPKG_NAME)/DEBIAN/control
 	echo "Description: SPARC Linux cross toolchain (GNU)"   >> sparc-linux-toolchain_$(DPKG_NAME)/DEBIAN/control
 
-	tar xf sparc-buildroot-linux-uclibc_sdk-buildroot.tar.gz -C sparc-linux-toolchain_$(DPKG_NAME)/opt
+	tar xf buildroot/output/images/sparc-buildroot-linux-uclibc_sdk-buildroot.tar.gz -C sparc-linux-toolchain_$(DPKG_NAME)/opt
 	cd sparc-linux-toolchain_$(DPKG_NAME)/usr/bin && ln -s ../../opt/sparc-buildroot-linux-uclibc_sdk-buildroot/bin/sparc-linux-* .
 	cp sparcexec sparc-linux-toolchain_$(DPKG_NAME)/usr/bin/sparcexec
 	dpkg-deb --build sparc-linux-toolchain_$(DPKG_NAME)
@@ -50,7 +49,7 @@ clean:
 	rm -rf buildroot/
 
 install:
-	tar xf sparc-buildroot-linux-uclibc_sdk-buildroot.tar.gz -C /opt
+	tar xf buildroot/output/images/sparc-buildroot-linux-uclibc_sdk-buildroot.tar.gz -C /opt
 	cd /usr/bin && ln -s ../../opt/sparc-buildroot-linux-uclibc_sdk-buildroot/bin/sparc-linux-* .
 	cp sparcexec /usr/bin/sparcexec
 

@@ -1,5 +1,4 @@
 buildroot/
 buildroot.tar.gz
-sparc-buildroot-linux-uclibc_sdk-buildroot.tar.gz
 sparc-linux-toolchain*/
 sparc-linux-toolchain*.deb
